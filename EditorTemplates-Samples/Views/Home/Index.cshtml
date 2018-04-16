@@ -1,0 +1,36 @@
+﻿@model EditorTemplateSample.Models.StudentListViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<br /><br />
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <div class="form-group">
+        <div class="col-md-12 table-responsive">
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Country
+                    </th>
+                    <th>
+                        Hobbies
+                    </th>
+                    <th>
+                        Sex
+                    </th>
+                </tr>
+                <tbody>
+                    @Html.EditorFor(m => m.Students, new { Countries = Model.Countries, MainModel = Model, Sex = Model.Sex })
+                </tbody>
+            </table>
+        </div>
+        <input type="submit" value="Submit" />
+    </div>
+}

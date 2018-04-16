@@ -1,0 +1,8 @@
+﻿@model EditorTemplateSample.Models.Hobby
+
+<div class="checkbox">
+    @Html.HiddenFor(m => m.ID)
+    @Html.HiddenFor(m => m.Name)
+    @Html.CheckBoxFor(m => m.Checked)
+    @Html.LabelFor(m => m.Checked, Model.Name)
+</div>

@@ -1,0 +1,33 @@
+﻿@model EditorTemplateSample.Models.Student
+
+<tr>
+    <td>
+        @Html.HiddenFor(m => m.ID)
+        @Html.DisplayFor(m => m.ID)
+    </td>
+    <td>
+        @Html.TextBoxFor(m => m.Name)
+    </td>
+    <td>
+        @*@Html.DropDownListFor(m => m.CountryID,
+        new SelectList((List<SelectListItem>)ViewData["Countries"], "Value", "Text", Model.CountryID), "-- Select Country--")*@
+
+        @Html.DropDownListFor(m => m.CountryID, (IEnumerable<SelectListItem>) ViewData["Countries"], "-- Select Country--") 
+    </td>
+    <td>
+        @Html.EditorFor(m => m.Hobbies)
+    </td>
+    <td>
+        @*@Html.EditorFor(m => ((EditorTemplateSample.Models.StudentListViewModel) ViewData["MainModel"]).Sex, new { Sex = (List<EditorTemplateSample.Models.Sex>)ViewData["Sex"], Student= })*@
+
+        @foreach (var sex in (List<EditorTemplateSample.Models.Sex>)ViewData["Sex"])
+        {
+            <div class="checkbox">
+                @Html.RadioButtonFor(m => m.SexID, sex.ID, new { id = "" })
+                @Html.LabelFor(m => m.SexID, sex.SexName)
+            </div>
+        }
+
+    </td>
+</tr>
+

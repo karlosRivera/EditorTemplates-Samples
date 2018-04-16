@@ -1,0 +1,24 @@
+﻿@model EditorTemplateSample.Models.Sex
+
+    <div class="checkbox">
+        @Html.HiddenFor(m => m.ID)
+        @Html.HiddenFor(m => m.SexName)
+        @Html.RadioButtonFor(m => ((EditorTemplateSample.Models.Student)ViewData["Student"]).SexID, Model.ID)
+        @Html.LabelFor(m => ((EditorTemplateSample.Models.Student)ViewData["Student"]).SexID, Model.SexName)
+    </div>
+
+
+
+            @*grid.Column(header: "Sex",
+            format: @<text>
+    @for (var i = 0; i < Model.Sex.Count; i++)
+                {
+        <div class="checkbox">
+            @Html.HiddenFor(m => Model.Sex[i].ID)
+            @Html.HiddenFor(m => Model.Sex[i].SexName)
+            @Html.RadioButtonFor(m => m.Students[rowNum - 1].SexID, Model.Sex[i].ID)
+            @Html.LabelFor(m => m.Students[rowNum - 1].SexID, Model.Sex[i].SexName)
+
+        </div>
+                }
+</text>)*@
